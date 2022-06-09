@@ -1,0 +1,637 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+         android:id="@+id/weather_background_first"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"/>
+
+    <ImageView
+        android:id="@+id/weather_background_second"
+        android:layout_width="match_parent"
+        android:src="@color/cardview_dark_background"
+        android:layout_height="match_parent"/>
+
+
+    <ImageView
+        android:id="@+id/weaher_front"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <ImageView
+        android:id="@+id/weaher_back"
+        android:scaleType="fitXY"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:id="@+id/tool_bar"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:onClick="add_city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/ic_add_city" />
+
+
+        <TextView
+            android:id="@+id/city_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:text="----"
+            android:paddingRight="10dp"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:layout_centerInParent="true" />
+        <ImageView
+            android:onClick="data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_settings" />
+    </RelativeLayout>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/refresh"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/tool_bar"
+
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+        <RelativeLayout
+            android:id="@+id/actionbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <RelativeLayout
+                android:id="@+id/weather_data_now"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-2dp">
+
+                <TextView
+                    android:id="@+id/temp_now"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginLeft="30dp"
+                    android:text="--"
+                    android:textColor="@color/white"
+                    android:textSize="120dp" />
+
+
+                <TextView
+                    android:id="@+id/temp_unit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/temp_now"
+                    android:layout_marginTop="30dp"
+                    android:layout_toRightOf="@+id/temp_now"
+                    android:text="°С"
+                    android:textColor="@color/white"
+                    android:textSize="20dp" />
+
+                <ImageView
+                    android:id="@+id/moon"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_alignTop="@+id/temp_now"
+                    android:layout_alignParentRight="true"
+                    android:layout_toRightOf="@+id/temp_unit"
+                    android:src="@drawable/u_150_12"/>
+
+                <TextView
+                    android:id="@+id/tipe_weather"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/temp_now"
+                    android:layout_marginBottom="30dp"
+                    android:layout_marginLeft="30dp"
+
+                    android:text="--------"
+                    android:textColor="@color/white"
+                    android:textSize="20dp" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/Sun"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:orientation="horizontal"
+                android:background="@drawable/full_weather_informatoin"
+                android:layout_below="@+id/weather_data_now">
+                <RelativeLayout
+                    android:id="@+id/rise"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginBottom="5dp">
+
+                    <TextView
+                        android:id="@+id/sunrise"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/sun_rise"
+                        android:textColor="@color/trans_white"
+                        android:textSize="15dp" />
+                    <ImageView
+                        android:id="@+id/im_rise"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ic_sun_rise"/>
+                    <TextView
+                        android:id="@+id/sun_rise"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:text="--:--"
+                        android:textColor="@color/white"
+                        android:textSize="15dp" />
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/local_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="--:--:--"
+                        android:textColor="@color/white"
+                        android:textSize="25dp"
+                        android:layout_centerHorizontal="true" />
+
+                    <TextView
+                        android:id="@+id/local_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="--, -- -------"
+                        android:layout_below="@id/local_time"
+                        android:textColor="@color/white"
+                        android:layout_centerHorizontal="true" />
+
+                    <ProgressBar
+                        android:id="@+id/sun_progress"
+                        style="?android:progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginBottom="7dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_below="@id/local_date"
+                        android:progressDrawable="@drawable/sun_progress" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/set"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="5dp">
+                    <TextView
+                        android:id="@+id/sunset"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/sun_set"
+                        android:textColor="@color/trans_white"
+                        android:textSize="15dp" />
+                    <ImageView
+                        android:id="@+id/im_set"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ic_sun_set"/>
+                    <TextView
+                        android:id="@+id/sun_set"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_alignParentBottom="true"                        android:text="--:--"
+                        android:textColor="@color/white"
+                        android:textSize="15dp" />
+                </RelativeLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/weather_full_data"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:orientation="horizontal"
+                android:background="@drawable/full_weather_informatoin"
+                android:layout_below="@+id/Sun">
+                <RelativeLayout
+                    android:id="@+id/Feels_Like"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1">
+                    <TextView
+                        android:id="@+id/feels_like"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/feels_like"
+                        android:textColor="@color/trans_white"
+                        android:textSize="15dp" />
+                    <ImageView
+                        android:id="@+id/im_feels_like"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/feels_like"
+                        android:src="@drawable/ic_feels_like"/>
+                    <TextView
+                        android:id="@+id/feels_like_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/im_feels_like"
+                        android:text="--°С"
+                        android:textColor="@color/white"
+                        android:textSize="15dp" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/Wind"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/wind"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/wind"
+                        android:textColor="@color/trans_white"
+                        android:textSize="15dp" />
+                    <ImageView
+                        android:id="@+id/im_wind"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/wind"
+                        android:src="@drawable/ic_wind"/>
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_below="@+id/im_wind"
+                        android:layout_centerHorizontal="true"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:id="@+id/wind_direction"
+                            android:src="@drawable/ic_wind_direction"
+                            android:layout_marginBottom="3dp"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_alignBottom="@+id/wind_speed_value"/>
+                        <TextView
+                            android:id="@+id/wind_speed_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@+id/wind_direction"
+                            android:layout_marginLeft="2dp"
+                            android:text="-- м/с"
+                            android:textColor="@color/white"
+                            android:textSize="15dp" />
+                    </RelativeLayout>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/Humidity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1">
+                    <TextView
+                        android:id="@+id/humidity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/humidity"
+                        android:textColor="@color/trans_white"
+                        android:textSize="15dp" />
+                    <ImageView
+                        android:id="@+id/im_humidity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/humidity"
+                        android:src="@drawable/ic_humidity"/>
+
+                    <TextView
+                        android:id="@+id/humidity_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/im_humidity"
+                        android:layout_centerHorizontal="true"
+
+                        android:layout_marginTop="0dp"
+                        android:text="--%"
+                        android:textColor="@color/white"
+                        android:textSize="15dp" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/Pressure"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/pressure"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/pressure"
+                        android:textColor="@color/trans_white"
+                        android:textSize="15dp" />
+                    <ImageView
+                        android:id="@+id/im_pressure"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/pressure"
+                        android:src="@drawable/ic_pressure"/>
+
+                    <TextView
+                        android:id="@+id/pressure_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/im_pressure"
+                        android:layout_centerHorizontal="true"
+                        android:text="---- hPa"
+                        android:textColor="@color/white"
+                        android:textSize="15dp" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/weather_5_day"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
+                android:layout_marginVertical="50dp"
+                android:orientation="horizontal"
+                android:background="@drawable/full_weather_informatoin"
+                android:layout_below="@+id/weather_full_data">
+                <RelativeLayout
+                    android:id="@+id/first_day"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1">
+                    <TextView
+                        android:id="@+id/first_day_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/tomorrow"
+                        android:textColor="@color/white"
+                        android:textSize="15dp" />
+                    <ImageView
+                        android:id="@+id/im_first_day"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/first_day_date"
+                        android:src="@drawable/ic_01d"/>
+                    <TextView
+                        android:id="@+id/first_day_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/im_first_day"
+                        android:text="--°С"
+                        android:textColor="@color/white"
+                        android:textSize="15dp" />
+                    <TextView
+                    android:id="@+id/first_day_min_max"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@+id/first_day_value"
+                    android:text="--°С"
+                    android:textColor="@color/trans_white"
+                    android:textSize="13dp" />
+                </RelativeLayout>
+                <View
+                    android:id="@+id/tomorrow_divider"
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginVertical="5dp"
+                    android:background="@color/trans_white" />
+                <RelativeLayout
+                    android:id="@+id/second_day"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/second_day_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:text="--------------"
+                        android:textColor="@color/trans_white"
+                        android:textSize="15dp" />
+                    <ImageView
+                        android:id="@+id/im_second_day"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/second_day_date"
+                        android:src="@drawable/ic_01n"/>
+
+                    <TextView
+                        android:id="@+id/second_day_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/im_second_day"
+                        android:text="--°С"
+                        android:textColor="@color/white"
+                        android:textSize="15dp" />
+                    <TextView
+                        android:id="@+id/second_day_min_max"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/second_day_value"
+                        android:text="--°С"
+                        android:textColor="@color/trans_white"
+                        android:textSize="13dp" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/third_day"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1">
+                    <TextView
+                        android:id="@+id/third_day_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:text="--------------"
+                        android:textColor="@color/trans_white"
+                        android:textSize="15dp" />
+                    <ImageView
+                        android:id="@+id/im_third_day"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/third_day_date"
+                        android:src="@drawable/ic_01d"/>
+                    <TextView
+                        android:id="@+id/third_day_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/im_third_day"
+                        android:layout_centerHorizontal="true"
+                        android:text="--°С"
+                        android:textColor="@color/white"
+                        android:textSize="15dp" />
+                    <TextView
+                        android:id="@+id/third_day_min_max"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/third_day_value"
+                        android:text="--°С"
+                        android:textColor="@color/trans_white"
+                        android:textSize="13dp" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/fourth_day"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/fourth_day_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:text="--------------"
+                        android:textColor="@color/trans_white"
+                        android:textSize="15dp" />
+                    <ImageView
+                        android:id="@+id/im_fourth_day"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/fourth_day_date"
+                        android:src="@drawable/ic_01n"/>
+
+                    <TextView
+                        android:id="@+id/fourth_day_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/im_fourth_day"
+                        android:layout_centerHorizontal="true"
+                        android:text="--°С"
+                        android:textColor="@color/white"
+                        android:textSize="15dp" />
+                    <TextView
+                        android:id="@+id/fourth_day_min_max"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/fourth_day_value"
+                        android:text="--°С"
+                        android:textColor="@color/trans_white"
+                        android:textSize="13dp" />
+
+                </RelativeLayout>
+                <RelativeLayout
+                android:id="@+id/fifth_day"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/fifth_day_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="--------------"
+                    android:textColor="@color/trans_white"
+                    android:textSize="15dp" />
+                <ImageView
+                    android:id="@+id/im_fifth_day"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@+id/fifth_day_date"
+                    android:src="@drawable/ic_01d"/>
+
+                <TextView
+                    android:id="@+id/fifth_day_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/im_fifth_day"
+                    android:layout_centerHorizontal="true"
+                    android:text="--°С"
+                    android:textColor="@color/white"
+                    android:textSize="15dp" />
+                <TextView
+                    android:id="@+id/fifth_day_min_max"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@+id/fifth_day_value"
+                    android:text="--°С"
+                    android:textColor="@color/trans_white"
+                    android:textSize="13dp" />
+            </RelativeLayout>
+            </LinearLayout>
+        </RelativeLayout>
+</ScrollView>
+        </RelativeLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</RelativeLayout>

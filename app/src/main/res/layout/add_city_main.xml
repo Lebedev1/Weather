@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/add_city_layout"
+    android:layout_width="match_parent"
+    android:background="@drawable/bg_clear_moning_evening"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/refresh_city_list_data"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:id = "@+id/location_city"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:id="@+id/location_city_name_l"
+            android:layout_width="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:id="@+id/ic_location_city"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_centerVertical="true" />
+        <TextView
+            android:id="@+id/location_city_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:layout_toRightOf="@+id/ic_location_city"
+            android:layout_marginTop="10dp"
+            android:layout_centerVertical="true"
+
+            android:textSize="20dp"/>
+            />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/location_weather_tipe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/location_city_name_l"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/trans_white"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/location_now_temp"
+            android:layout_width="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/white"
+            android:layout_marginLeft="17dp"
+            android:textSize="25dp"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+    <ListView
+        android:id="@+id/city_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:listSelector="@drawable/bg_dropdown"
+        android:layout_marginLeft="7dp"
+        android:stackFromBottom="true"
+        android:layout_above="@+id/new_city"
+        android:layout_marginRight="7dp"
+        android:layout_weight="1"
+        android:dividerHeight="10dp"
+        android:divider="@color/transparent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:id="@+id/new_city"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bg_dropdown"
+        android:layout_margin="7dp"
+        android:layout_weight="0"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/name_new_city"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="7dp"
+            android:background="@color/transparent"
+            android:layout_weight="1"
+            android:padding="5dp"
+            android:layout_height="45dp"
+            android:hint="@string/add_city_hint"/>
+
+        <ImageView
+            android:id="@+id/add"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_weight="0"
+            android:onClick="add"
+            android:src="@drawable/ic_add_city"
+            android:padding="5dp"/>
+    </LinearLayout>
+</LinearLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</LinearLayout>

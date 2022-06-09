@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Weather</string>
+    <string name="refresh_started">Updating data</string>
+    <string name="data_loaded">Data loaded</string>
+    <string name="not_connection">No Internet connection</string>
+    <string name="error_loading_data">Data loading error</string>
+    <string name="sun_rise">Sun rise</string>
+    <string name="sun_set">Sun set</string>
+    <string name="feels_like">Feels like</string>
+    <string name="wind">Wind</string>
+    <string name="humidity">Humidity</string>
+    <string name="pressure">Pressure</string>
+    <string name="wind_speed_unit"> m/s</string>
+    <string name="minute"> min </string>
+    <string name="second"> s </string>
+    <string name="add_city_hint">Enter the city name...</string>
+    <string name="add_city">Add city</string>
+    <string name="weather_updated">Updated %1$s ago</string>
+    <string name="location_cannot_be_found">The location cannot be found</string>
+    <string name="tomorrow">Tomorrow</string>
+</resources>

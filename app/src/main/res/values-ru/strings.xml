@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Погода</string>
+    <string name="refresh_started">Обновление данных</string>
+    <string name="data_loaded">Данные загружены</string>
+    <string name="not_connection">Нет подключения к интернету</string>
+    <string name="error_loading_data">Ошибка загрузки данных</string>
+    <string name="sun_rise">Восход</string>
+    <string name="sun_set">Закат</string>
+    <string name="feels_like">Ощущается</string>
+    <string name="wind">Ветер</string>
+    <string name="humidity">Влажность</string>
+    <string name="pressure">Давление</string>
+    <string name="wind_speed_unit"> м/с</string>
+    <string name="minute"> мин </string>
+    <string name="second"> с</string>
+    <string name="add_city_hint">Введите название города...</string>
+    <string name="add_city">Добавить город</string>
+    <string name="weather_updated">Обновлено %1$s назад</string>
+    <string name="location_cannot_be_found">Местоположение не найдено</string>
+    <string name="tomorrow">Завтра</string>
+</resources>
